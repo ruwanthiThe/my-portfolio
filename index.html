@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruwanthi Thennakoon – Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#f9fafb',
+            text: '#1e293b',
+            accent: '#2563eb',
+            muted: '#64748b',
+            highlight: '#facc15'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-text min-h-screen flex flex-col relative">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl font-extrabold text-accent">Portfolio</span>
+        <!-- <span class="text-xl font-semibold tracking-wide">Thennakoon</span> -->
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <a href="#home" class="text-accent font-semibold">Home</a>
+        <a href="#about" class="hover:text-accent transition">About</a>
+        <a href="#projects" class="hover:text-accent transition">Projects</a>
+      </nav>
+
+      <!-- Contact Button -->
+      <a href="#contact" class="hidden md:inline-block px-5 py-2 bg-accent text-white rounded-lg font-semibold shadow-md hover:scale-105 transition-transform">Contact</a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 transition" aria-label="Open Menu">
+        <svg class="w-6 h-6 text-text" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 bg-black/40 flex md:hidden hidden">
+    <div class="bg-white w-3/4 max-w-xs h-full shadow-lg p-6 flex flex-col gap-6">
+      <button id="closeMobileMenu" class="self-end mb-4 p-2 rounded hover:bg-gray-100 transition" aria-label="Close Menu">
+        <svg class="w-6 h-6 text-text" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <a href="#home" class="text-accent font-semibold">Home</a>
+      <a href="#about" class="hover:text-accent transition">About</a>
+      <a href="#projects" class="hover:text-accent transition">Projects</a>
+      <a href="#contact" class="px-5 py-2 bg-accent text-white rounded-lg font-semibold shadow-md hover:scale-105 transition-transform">Contact</a>
+    </div>
+    <div class="flex-1" id="mobileMenuOverlay"></div>
+  </div>
+
+  <!-- Hero Section -->
+  <main class="flex-grow" id="home">
+    <section class="relative container mx-auto flex flex-col-reverse md:flex-row items-center px-4 py-20 gap-12 rounded-xl overflow-hidden min-h-[500px]" style="min-height:60vh;" data-aos="fade-up">
+      
+      <!-- Background Image & Overlay -->
+      <div class="absolute inset-0 w-full h-full z-0">
+        <img src="assets/img/Image_fx.jpg" alt="Background" class="w-full h-full object-cover"/>
+        <div class="absolute inset-0 bg-white/80"></div>
+      </div>
+
+      <!-- Left: Text -->
+      <div class="flex-1 z-10" data-aos="fade-right">
+        <span class="inline-block bg-highlight text-text text-xs font-semibold px-3 py-1 rounded mb-4 uppercase tracking-wider">Now Available</span>
+        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
+          Hi, I'm <span class="text-accent">Ruwanthi Thennakoon</span>
+        </h1>
+        <p class="text-muted text-lg leading-relaxed mb-8 max-w-xl">
+          I am an undergraduate in Information Technology. I am passionate about learning new programming languages, working with web technologies, building software solutions.I am always eager to expand my knowledge, collaborate on innovative projects, and apply my skills to real-world challenges
+        </p>
+
+        <!-- About Button + Socials -->
+        <div class="flex flex-col sm:flex-row items-center gap-4 flex-wrap">
+          <a href="#about" class="bg-accent text-white px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition-transform w-full sm:w-auto text-center">
+            About Me
+          </a>
+          <a href="assets/pdf/Chamika Resume.pdf.pdf" download onclick="event.stopPropagation(); event.preventDefault(); fetch('assets/pdf/Chamika Thennakoon CV.pdf').then(resp => resp.blob()).then(blob => { const url = window.URL.createObjectURL(blob); const a = document.createElement('a'); a.style.display = 'none'; a.href = url; a.download = 'Chamika Thennakoon CV.pdf'; document.body.appendChild(a); a.click(); window.URL.revokeObjectURL(url); document.body.removeChild(a); });" class="bg-highlight text-text px-6 py-3 rounded-lg font-semibold shadow hover:scale-105 transition-transform w-full sm:w-auto text-center">
+            Download Resume
+          </a>
+          
+          <!-- GitHub -->
+          <a href="https://github.com/ruwanthiThe" target="_blank" class="hover:scale-110 transition-transform">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-8 h-8"/>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank" class="hover:scale-110 transition-transform">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-8 h-8"/>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Profile Image -->
+      <div class="flex-1 flex justify-center items-center z-10" data-aos="fade-left">
+        <div class="bg-white rounded-2xl shadow-xl p-2 sm:p-4 md:p-6 border border-gray-200 max-w-xs">
+          <img src="assets/img/ruwanthi.png" alt="Ruwanthi Thennakoon profile photo"
+               class="rounded-2xl object-cover w-full h-auto"/>
+        </div>
+      </div>
+
+    </section>
+    <!-- About Section -->
+    <section id="about" class="container mx-auto px-4 py-20 scroll-mt-20" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto">
+        <span class="inline-block bg-highlight text-text text-xs font-semibold px-3 py-1 rounded mb-4 uppercase tracking-wider">About Me</span>
+        <div class="flex flex-col md:flex-row gap-12 items-start">
+          <div class="md:w-1/3" data-aos="zoom-in">
+            <div class="w-48 h-48 rounded-full overflow-hidden shadow-lg border-4 border-accent mx-auto">
+              <img src="assets/img/ruwanthi.png" alt="Ruwanthi Thennakoon profile photo" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          <div class="md:w-2/3" data-aos="fade-left">
+            <h1 class="text-3xl font-bold mb-6 text-text">My Journey</h1>
+            <p class="text-muted text-lg leading-relaxed mb-8">
+              As a passionate IT student at SLIIT, I have developed a solid foundation in programming languages like Java, Python, C and C++, alongside web technologies such as HTML, CSS, JavaScript, React.js, Next.js, and Node.js.
+            </p>
+            <h2 class="text-2xl font-bold mb-4 text-text">Tech Stack</h2>
+            <div class="space-y-6">
+              <!-- Languages -->
+              <div>
+                <h3 class="text-lg font-semibold mb-2 text-accent">Languages</h3>
+                <div class="grid grid-cols-4 sm:grid-cols-6 gap-4">
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-java-plain colored text-4xl"></i>
+                    <p>Java</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <img src="https://www.vectorlogo.zone/logos/python/python-icon.svg" alt="Python" class="w-12 h-12 object-contain" />
+                    <p>Python</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-javascript-plain colored text-4xl"></i>
+                    <p>JavaScript</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-html5-plain colored text-4xl"></i>
+                    <p>HTML5</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-css3-plain colored text-4xl"></i>
+                    <p>CSS3</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-c-plain colored text-4xl"></i>
+                    <p>C</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-cplusplus-plain colored text-4xl"></i>
+                    <p>C++</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Databases -->
+              <div>
+                <h3 class="text-lg font-semibold mb-2 text-accent">Databases</h3>
+                <div class="grid grid-cols-4 sm:grid-cols-6 gap-4">
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-mysql-plain colored text-4xl"></i>
+                    <p>MySQL</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-mongodb-plain colored text-4xl"></i>
+                    <p>MongoDB</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Frameworks -->
+              <div>
+                <h3 class="text-lg font-semibold mb-2 text-accent">Frameworks</h3>
+                <div class="grid grid-cols-4 sm:grid-cols-6 gap-4">
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-react-original colored text-4xl"></i>
+                    <p>React</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-nodejs-plain colored text-4xl"></i>
+                    <p>Node.js</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-express-original colored text-4xl"></i>
+                    <p>Express</p>
+                  </div>
+                  
+                </div>
+              </div>
+              <!-- Development Tools -->
+              <div>
+                <h3 class="text-lg font-semibold mb-2 text-accent">Development Tools</h3>
+                <div class="grid grid-cols-4 sm:grid-cols-6 gap-4">
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-vscode-plain colored text-4xl"></i>
+                    <p>VS Code</p>
+                  </div>
+                  
+                  <div class="flex flex-col items-center">
+                    <i class="devicon-eclipse-plain colored text-4xl"></i>
+                    <p>Eclipse</p>
+                  </div>
+                  
+                  <div class="flex flex-col items-center">
+                    <img src="assets/icons/download.png" alt="R Studio" class="w-12 h-12 object-contain" />
+                    <p>R Studio</p>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Apache_NetBeans_Logo.svg" alt="NetBeans" class="w-12 h-12 object-contain" />
+                    <p>NetBeans</p>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Concepts -->
+              <div>
+                <h3 class="text-lg font-semibold mb-2 text-accent">Concepts / Architectures</h3>
+                <p class="text-muted">Object-Oriented Programming (OOP),Model-View-Controller(MVC)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto px-4 py-20 scroll-mt-20" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto">
+        <span class="inline-block bg-highlight text-text text-xs font-semibold px-3 py-1 rounded mb-4 uppercase tracking-wider">Projects</span>
+        <h1 class="text-3xl font-bold mb-8 text-text">Featured Projects</h1>
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- AI Project -->
+          <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="flip-left">
+            <img src="assets/img/inv.png" alt="ITP Project" class="rounded-t-lg w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-2">Funeral Management System</h2>
+              <p class="text-muted mb-4">
+                As part of a university group project, we developed a responsive, full-stack web application designed to digitalize and streamline operations of a funeral service provider.
+              </p>
+              <div class="healthcare-more hidden">
+                <strong>Key Features:</strong>
+                <ul class="list-disc list-inside mb-2">
+                  <li>Fueneral service booking management</li>
+                  <li>Inventory & Supply Chain management</li>
+                  <li>Staff management</li>
+                  <li>Vehicles & Transportaion routes management</li>
+                  <li>User & Feedbacks management</li>
+              
+                </ul>
+                <strong>My Contribution:</strong>
+                <ul class="list-disc list-inside">
+                  <li>Developed the Inventory & Supply Chain management system</li>
+                  <li>Implemented the CRUD operations for inventory item management,item order management and suppliers' details management</li>
+                  <li>Implemented low stock alert to display on manager's dashboard,when an item stock got below 10</li>
+                  <li>Generate Reports</li>
+                </ul>
+              </div>
+              <button type="button" class="healthcare-toggle text-accent underline mt-2">See more</button>
+              <div class="flex gap-3">
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">React</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Node</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Express</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">MongoDB</span>
+              </div>
+              <br>
+              <!-- <p class="text-sm font-semibold text-accent mb-2 uppercase tracking-wide">View Project</p> -->
+              <div class="mt-4 flex space-x-4">
+                <a href="https://github.com/ruwanthiThe/FuneralManagementSystem" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Web App Project -->
+          <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="flip-up">
+            <img src="assets/img/homepagewith_login.jpg" alt="Web App Project" class="rounded-t-lg w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-2">Online Grocery Ordering System</h2>
+              <p class="text-muted mb-4">For the university group project in second year first semester OOP module, we designed and developed a web-based Online Grocery Ordering System to facilitate seamless product browsing, adding items to the cart, ordering, and payment processing for users.The system also includes an admin panel for managing products,orders. I have developed the Payment Management module to handle user payments and transaction records.Enabled CRUD operations for managing payments from both user and admin perspectives. Applied OOP principles. 
+
+                
+              </p>
+              <button type="button" class="employee-toggle text-accent underline mt-2">See more</button>
+              <div class="flex gap-3">
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Java</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">MySQL</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">OOP</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">JavaScript</span>
+              </div>
+              <br>
+              <div class="mt-4 flex space-x-4">
+                <a href="https://github.com/ruwanthiThe/Online_Grocery_Ordering_System" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- ML Project -->
+          <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="flip-right">
+            <img src="assets/img/medilink.PNG" alt="ML Project" class="rounded-t-lg w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-2 flex items-center gap-2">Doctor Appointment Booking System
+                <span class="inline-block bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded shadow-lg animate-pulse">Ongoing</span>
+              </h2>
+              <p class="text-muted mb-4">Developed an individual, responsive full-stack appointment booking system using the MERN stack, designed for doctors and private hospitals to streamline patient-doctor interactions.
+              
+              </p>
+              
+              
+              
+              <div class="ml-more hidden mt-4">
+                <strong>Key Features:</strong>
+                <ul class="list-disc list-inside mb-2">
+                  <li>Role-based Authentication – Implemented three levels of secure login (Patients, Doctors, Admins) with JWT authentication.</li>
+                  <li>Patient Portal – Patients can register, log in, book appointments, and manage existing bookings.</li>
+                  <li>Doctor Dashboard – Doctors can view appointments, track earnings, and update their profile through a dedicated dashboard.</li>
+                  <li>Admin Panel – Admins can manage appointments, oversee doctor profiles, and maintain platform integrity.</li>
+                  <li>Online Payment Integration – Integrated secure payment gateway for patients to pay consultation fees online.</li>
+                  <li>Responsive UI – Designed with React and Tailwind CSS for a seamless cross-device experience.</li>
+                </ul>
+              </div>
+              <button type="button" class="ml-toggle text-accent underline mt-2">See more</button>
+              <div class="flex gap-3">
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">React</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Node</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Express</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">MongoDB</span>
+              </div>
+              <br>
+              <div class="mt-4 flex space-x-4">
+                <a href="https://github.com/ruwanthiThe/Appointment-Booking-system" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Resume Section -->
+    <section id="resume" class="container mx-auto px-2 sm:px-4 py-10 sm:py-20 scroll-mt-20 hidden" data-aos="fade-up">
+      <!-- This section is now hidden, as the download button is in the hero section -->
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto px-4 py-8 min-h-screen flex flex-col md:flex-row items-center md:items-start justify-center gap-8 scroll-mt-20" data-aos="fade-up">
+      <div class="w-full md:w-1/2 bg-gradient-to-br from-accent/10 to-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-lg flex flex-col justify-center mx-auto md:mx-0 border border-accent/20" data-aos="fade-right">
+        <h2 class="text-2xl font-extrabold mb-6 text-accent text-center md:text-left flex items-center gap-2">
+          <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 10.5a8.38 8.38 0 01-.9 3.8c-.63 1.18-1.5 2.23-2.6 3.13A8.5 8.5 0 013 10.5V7a2 2 0 012-2h2.5a2 2 0 012 2v.5a2 2 0 01-2 2H5.5"/></svg>
+          Get in Touch
+        </h2>
+        <form class="space-y-6">
+          <div class="flex gap-4">
+            <div class="flex-1">
+              <label for="name" class="block text-sm font-semibold text-accent mb-2">Name</label>
+              <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl border border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent text-base bg-white shadow-sm" placeholder="Your name" />
+            </div>
+            <div class="flex-1">
+              <label for="email" class="block text-sm font-semibold text-accent mb-2">Email</label>
+              <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent text-base bg-white shadow-sm" placeholder="your.email@example.com" />
+            </div>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-semibold text-accent mb-2">Message</label>
+            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 rounded-xl border border-accent/30 focus:outline-none focus:ring-2 focus:ring-accent resize-none text-base bg-white shadow-sm" placeholder="Your message here..."></textarea>
+          </div>
+          <button type="submit" class="w-full bg-accent text-white px-6 py-3 rounded-xl font-bold shadow-lg hover:bg-accent/90 transition-transform text-base flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.5 19.5l19-7-19-7v14z"/></svg>
+            Send Message
+          </button>
+        </form>
+      </div>
+      <div class="w-full md:w-1/2 space-y-4 sm:space-y-6 max-w-md flex flex-col justify-center mx-auto md:mx-0" data-aos="fade-left">
+        <a href="https://github.com/ruwanthiThe" target="_blank" class="flex flex-col items-center p-3 sm:p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="w-8 h-8 mb-2 sm:w-10 sm:h-10 sm:mb-3"/>
+          <h2 class="font-bold text-text text-base sm:text-lg">GitHub</h2>
+          <p class="text-muted text-xs sm:text-sm">View My Code</p>
+        </a>
+        <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank" class="flex flex-col items-center p-3 sm:p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" class="w-8 h-8 mb-2 sm:w-10 sm:h-10 sm:mb-3"/>
+          <h2 class="font-bold text-text text-base sm:text-lg">LinkedIn</h2>
+          <p class="text-muted text-xs sm:text-sm">Connect with Me</p>
+        </a>
+        <a href="mailto:ruthennakoon@gmail.com" class="flex flex-col items-center p-3 sm:p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow">
+          <svg class="w-8 h-8 mb-2 sm:w-10 sm:h-10 sm:mb-3 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+          </svg>
+          <h2 class="font-bold text-text text-base sm:text-lg">Email</h2>
+          <p class="text-muted text-xs sm:text-sm">Send a Message</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Footer (Optional) -->
+  <footer class="text-center py-6 text-sm text-muted bg-white border-t">
+    © 2025. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scripts.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true,
+      offset: 80
+    });
+    // Simple smooth fade page transition
+    const transition = document.getElementById('pageTransition');
+    function showTransition(cb) {
+      transition.classList.add('active');
+      setTimeout(cb, 400);
+    }
+    function hideTransition() {
+      transition.classList.remove('active');
+    }
+    window.addEventListener('DOMContentLoaded', hideTransition);
+    document.querySelectorAll('a').forEach(link => {
+      const href = link.getAttribute('href');
+      if (href && !href.startsWith('#') && !link.hasAttribute('target')) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          showTransition(() => {
+            window.location = href;
+          });
+        });
+      }
+    });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuBtn && mobileMenu && closeMobileMenu && mobileMenuOverlay) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+      closeMobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+      mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    }
+
+    // See more/less toggle for healthcare project
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.healthcare-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const more = btn.parentElement.querySelector('.healthcare-more');
+          if (more.classList.contains('hidden')) {
+            more.classList.remove('hidden');
+            btn.textContent = 'See less';
+          } else {
+            more.classList.add('hidden');
+            btn.textContent = 'See more';
+          }
+        });
+      });
+      // See more/less toggle for employee project
+      document.querySelectorAll('.employee-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const more = btn.parentElement.querySelector('.employee-more');
+          if (more.classList.contains('hidden')) {
+            more.classList.remove('hidden');
+            btn.textContent = 'See less';
+          } else {
+            more.classList.add('hidden');
+            btn.textContent = 'See more';
+          }
+        });
+      });
+      // See more/less toggle for ML project
+      document.querySelectorAll('.ml-toggle').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          const more = btn.parentElement.querySelector('.ml-more');
+          if (more.classList.contains('hidden')) {
+            more.classList.remove('hidden');
+            btn.textContent = 'See less';
+          } else {
+            more.classList.add('hidden');
+            btn.textContent = 'See more';
+          }
+        });
+      });
+    });
+  </script>
+  <style>
+    .page-transition-fade {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #f9fafb;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .page-transition-fade.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+  <div id="pageTransition" class="page-transition-fade"></div>
+</body>
+</html>

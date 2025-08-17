@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects - Chamika Thennakoon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#f9fafb',
+            text: '#1e293b',
+            accent: '#2563eb',
+            muted: '#64748b',
+            highlight: '#facc15'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .page-transition-fade {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #f9fafb;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .page-transition-fade.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+  <div id="pageTransition" class="page-transition-fade"></div>
+  <script>
+    // Simple smooth fade page transition
+    window.addEventListener('DOMContentLoaded', function() {
+      const transition = document.getElementById('pageTransition');
+      function showTransition(cb) {
+        transition.classList.add('active');
+        setTimeout(cb, 400);
+      }
+      function hideTransition() {
+        transition.classList.remove('active');
+      }
+      hideTransition();
+      document.querySelectorAll('a').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('#') && !link.hasAttribute('target')) {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            showTransition(() => {
+              window.location = href;
+            });
+          });
+        }
+      });
+    });
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#0f172a] min-h-screen flex flex-col">  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <span class="text-2xl font-extrabold text-accent">Portfolio</span>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+        <a href="index.html" class="hover:text-accent transition">Home</a>
+        <a href="about.html" class="hover:text-accent transition">About</a>
+        <a href="projects.html" class="text-accent font-semibold">Projects</a>
+        <a href="resume.html" class="hover:text-accent transition">Resume</a>
+      </nav>
+
+      <!-- Contact Button -->
+      <a href="contact.html" class="hidden md:inline-block px-5 py-2 bg-accent text-white rounded-lg font-semibold shadow-md hover:scale-105 transition-transform">Contact</a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" class="md:hidden p-2 rounded hover:bg-gray-100 transition" aria-label="Open Menu">
+        <svg class="w-6 h-6 text-text" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+  <!-- Mobile Navigation Drawer -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 bg-black/40 flex md:hidden hidden">
+    <div class="bg-white w-3/4 max-w-xs h-full shadow-lg p-6 flex flex-col gap-6">
+      <button id="closeMobileMenu" class="self-end mb-4 p-2 rounded hover:bg-gray-100 transition" aria-label="Close Menu">
+        <svg class="w-6 h-6 text-text" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+      <a href="index.html" class="text-accent font-semibold">Home</a>
+      <a href="about.html" class="hover:text-accent transition">About</a>
+      <a href="projects.html" class="hover:text-accent transition">Projects</a>
+      <a href="resume.html" class="hover:text-accent transition">Resume</a>
+      <a href="contact.html" class="px-5 py-2 bg-accent text-white rounded-lg font-semibold shadow-md hover:scale-105 transition-transform">Contact</a>
+    </div>
+    <div class="flex-1" id="mobileMenuOverlay"></div>
+  </div>
+  <!-- Main Content -->
+  <main class="flex-grow">
+    <section class="container mx-auto px-4 py-20">
+      <div class="max-w-6xl mx-auto">
+        <span class="inline-block bg-highlight text-text text-xs font-semibold px-3 py-1 rounded mb-4 uppercase tracking-wider">Projects</span>
+        <h1 class="text-3xl font-bold mb-8 text-text">Featured Projects</h1>
+        <div class="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Funeral Management System -->
+          <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="flip-left">
+            <img src="assets/img/inv.png" alt="ITP Project" class="rounded-t-lg w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-2">Funeral Management System</h2>
+              <p class="text-muted mb-4">As part of a university group project, we developed a responsive, full-stack web application designed to digitalize and streamline operations of a funeral service provider.</p>
+              <div class="flex gap-3">
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">React</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Node</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Express</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">MongoDB</span>
+              </div>
+              <div class="mt-4 flex space-x-4">
+                <a href="https://github.com/ruwanthiThe/FuneralManagementSystem" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Web App Project -->
+          <!-- Online Grocery Ordering System -->
+          <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="flip-up">
+            <img src="assets/img/homepagewith_login.jpg" alt="Web App Project" class="rounded-t-lg w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-2">Online Grocery Ordering System</h2>
+              <p class="text-muted mb-4">A web-based system for seamless product browsing, cart management, ordering, and payment processing. Includes admin panel for product and order management. Developed the Payment Management module using Java and MySQL.</p>
+              <div class="flex gap-3">
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Java</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">MySQL</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">OOP</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">JavaScript</span>
+              </div>
+              <div class="mt-4 flex space-x-4">
+                <a href="https://github.com/ruwanthiThe/Online_Grocery_Ordering_System" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- ML Project -->
+          <!-- Doctor Appointment Booking System -->
+          <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-aos="flip-right">
+            <img src="assets/img/medilink.PNG" alt="ML Project" class="rounded-t-lg w-full h-48 object-cover" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold mb-2 flex items-center gap-2">Doctor Appointment Booking System
+                <span class="inline-block bg-yellow-500 text-white text-xs font-semibold px-2 py-1 rounded shadow-lg animate-pulse">Ongoing</span>
+              </h2>
+              <p class="text-muted mb-4">An advanced AI-powered solution designed to streamline document processing and intelligent data retrieval. Supports multiple file formats, uses preprocessing for OCR, and features a custom CNN model for document classification. Key information is stored for semantic and keyword-based search, with an interactive chatbot for conversational access.</p>
+              <button type="button" class="ml-toggle text-accent underline mt-2">See more</button>
+              <div class="ml-more hidden mt-4">
+                <strong>Key Features:</strong>
+                <ul class="list-disc list-inside mb-2">
+                  <li>Role-based Authentication – Implemented three levels of secure login (Patients, Doctors, Admins) with JWT authentication.</li>
+                  <li>Patient Portal – Patients can register, log in, book appointments, and manage existing bookings.</li>
+                  <li>Doctor Dashboard – Doctors can view appointments, track earnings, and update their profile through a dedicated dashboard.</li>
+                  <li>Admin Panel – Admins can manage appointments, oversee doctor profiles, and maintain platform integrity.</li>
+                  <li>Online Payment Integration – Integrated secure payment gateway for patients to pay consultation fees online.</li>
+                  <li>Responsive UI – Designed with React and Tailwind CSS for a seamless cross-device experience.</li>
+                </ul>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">React</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Node</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">Express</span>
+                <span class="text-xs bg-background text-muted px-2 py-1 rounded">MongoDB</span>
+              </div>
+              <div class="mt-4 flex space-x-4">
+                <a href="https://github.com/ruwanthiThe/Appointment-Booking-system" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/ruwanthi-thennakoon-469062371/" target="_blank">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" class="w-6 h-6 hover:scale-110 transition-transform" alt="LinkedIn" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-muted bg-white border-t">
+    © 2025. All rights reserved.
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/scripts.js"></script>
+  <script>
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    if (mobileMenuBtn && mobileMenu && closeMobileMenu && mobileMenuOverlay) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.remove('hidden');
+      });
+      closeMobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+      mobileMenuOverlay.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
+
+<!-- This file has been merged into index.html and is no longer used. -->
